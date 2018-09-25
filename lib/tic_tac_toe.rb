@@ -53,11 +53,21 @@ def turn (board)
   puts "Please enter position:"
   inp = gets.strip
   inp = input_to_index(inp)
+<<<<<<< HEAD
   while inp == -1 || position_taken?(board,inp) do
     puts "Invalid. Try again: "
     inp = gets.strip
     inp = input_to_index(inp)
     
+=======
+  while inp == -1 do
+    puts "Invalid. Try again: "
+    inp = gets.strip
+    inp = input_to_index(inp)
+    if position_taken?(board,inp)
+      inp == -1
+    end
+>>>>>>> 18008c47f55ac177f3d20b2f881b702fd17a0daf
   end
 
   player_move(board,inp,current_player(board))
@@ -156,9 +166,16 @@ end
 def over?(board)
   if winner(board) != nil || draw?(board) == true || full?(board) == true
     return true
+<<<<<<< HEAD
   else
     return false
   end
+=======
+  end
+   
+  return false
+
+>>>>>>> 18008c47f55ac177f3d20b2f881b702fd17a0daf
 #returns true if board won, draw, or full
 end
 
@@ -172,6 +189,7 @@ def winner (board)
 end
 
 def play (board)
+<<<<<<< HEAD
   won?(board)
   won?(board)
   puts ("Congratulations X!")
@@ -185,4 +203,15 @@ def play (board)
   if won?(board) == nil
     puts "Cat's Game!"
   end
+=======
+  puts "Welcome! Please enter value: "
+  val = gets.strip
+  while !over?(board) do
+    turn(board)
+    if won?(board) != nil
+      puts "Congrats on winning"
+    end
+  end
+  
+>>>>>>> 18008c47f55ac177f3d20b2f881b702fd17a0daf
 end
